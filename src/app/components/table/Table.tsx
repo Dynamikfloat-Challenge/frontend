@@ -1,4 +1,5 @@
-import { Table, Badge } from "@radix-ui/themes";
+import { Table, Badge, Button } from "@radix-ui/themes";
+import Link from "next/link";
 
 function DevsTable({ users }) {
   return (
@@ -25,9 +26,12 @@ function DevsTable({ users }) {
               ))}
             </Table.Cell>
             <Table.Cell>
-              <button className="text-blue-500 hover:underline">
-                View Profile
-              </button>
+                <Link
+                  href={`/${user.id}`}
+                  className="bg-purple-100 rounded text-blue-800 hover:bg-purple-200 p-1.5 "
+                >
+                  View profile
+                </Link>
             </Table.Cell>
           </Table.Row>
         ))}
