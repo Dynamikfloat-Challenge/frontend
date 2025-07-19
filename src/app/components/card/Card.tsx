@@ -15,7 +15,8 @@ function UserCard({ user }) {
 
         {/* Birth date */}
         <Text as="p" mt="3" size="3">
-          <strong>Birth date:</strong> {birth_date}
+          <strong>Birth date:</strong>{" "}
+          {new Date(birth_date).toISOString().slice(0, 10)}
         </Text>
 
         {/* Stack badges */}
