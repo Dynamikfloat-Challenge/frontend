@@ -8,3 +8,12 @@ export async function getAllUsers() {
 
   return response.data;
 }
+
+export async function getUserById(id: string) {
+    const response = await axios({
+        method: "get",
+        url: `http://localhost:8080/devs/${id}`,
+    });
+    
+    return response.data;
+}
