@@ -1,5 +1,6 @@
 import { Table, Badge, Button } from "@radix-ui/themes";
 import Link from "next/link";
+import { SquareUserRound } from "lucide-react";
 
 function DevsTable({ users }) {
   return (
@@ -16,10 +17,10 @@ function DevsTable({ users }) {
 
       <Table.Body>
         {users.map((user) => (
-          <Table.Row key={user.id}>
-            <Table.RowHeaderCell>{user.nickname}</Table.RowHeaderCell>
+          <Table.Row key={user.id} className="hover:bg-gray-100">
+            <Table.Cell>{user.nickname}</Table.Cell>
             <Table.Cell>{user.name}</Table.Cell>
-            <Table.Cell>{user.birth_date}</Table.Cell>
+            <Table.Cell>{new Date(user.birth_date).toISOString().slice(0, 10)}</Table.Cell>
             <Table.Cell className="flex flex-wrap gap-1">
               {user.stack.map((item) => (
                 <Badge key={item}>{item}</Badge>
@@ -28,9 +29,9 @@ function DevsTable({ users }) {
             <Table.Cell>
                 <Link
                   href={`/${user.id}`}
-                  className="bg-purple-100 rounded text-blue-800 hover:bg-purple-200 p-1.5 "
+                  className="rounded text-black hover:text-blue-500 p-0 m-0 "
                 >
-                  View profile
+                  <SquareUserRound className="inline-block ml-1" size={17} />
                 </Link>
             </Table.Cell>
           </Table.Row>
