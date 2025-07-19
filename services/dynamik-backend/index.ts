@@ -17,3 +17,13 @@ export async function getUserById(id: string) {
     
     return response.data;
 }
+
+export async function createUser(userData) {
+    const response = await axios({
+        method: "post",
+        url: "http://localhost:8080/devs",
+        data: userData,
+    });
+
+    return response.data;
+}
